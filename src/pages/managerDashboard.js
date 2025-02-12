@@ -6,7 +6,7 @@ const ManagerDashboard = () => {
   return (
     <div className="flex">
       <MenuBar />
-      <div className="flex-1 min-h-screen bg-gray-100">
+      <div className="flex-1 min-h-screen bg-gray-100" id="main-content">
         <div className="p-8">
           <Outlet />
         </div>

@@ -5,12 +5,22 @@ const Settings = () => {
     notifications: true,
     emailAlerts: true,
     darkMode: false,
-    apiKey: "**********************",
+    apiKey: "",
   });
 
   const handleSave = () => {
     // Add save settings logic here
     console.log("Settings saved:", settings);
+
+    // Toggle dark mode class on the body
+    if (settings.darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+
+    // Save to localStorage
+    localStorage.setItem("darkMode", settings.darkMode);
   };
 
   return (
@@ -77,7 +87,13 @@ const Settings = () => {
         </div>
       </div>
 
-      {/* API Settings Card */}
+      {/* Save Button */}
+      <button
+        onClick={handleSave}
+        className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+      >
+        Save Settings
+      </button>
     </div>
   );
 };
